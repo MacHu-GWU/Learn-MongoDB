@@ -10,7 +10,8 @@
 
 	C:\Program Files\MongoDB\Server\3.0\bin
 
-在C盘根目录下创建C:\data\db, 之后mongodb的文件则会自动储存在这个目录下。
+在C盘根目录下创建C:\data\db, 之后mongodb的文件则会自动储存在这个目录下。如果你想将文件指定到其他目录下, 启动mongod时加上 --dbpath参数。更多信息请参考详细参数说明([戳这里](http://docs.mongodb.org/manual/reference/program/mongod/#cmdoption--dbpath))。
+
 输入下面的命令启动mongodb服务:
 
 	mongod.exe
@@ -46,16 +47,3 @@ collections有关的命令:
 在collection中进行操作
 
 	db.#collection_name.#method_name(*arguments)
-
-##MongoDB中的CRUD
-
-	Create = .insert()
-	Read = .find()
-	Update = .update()
-	Delete = .remove()
-
-为了简单起见, 我们下面用几个users作为collection名进行说明。
-
-##insert()
-
-	db.users.insert()
