@@ -35,6 +35,20 @@ def absolute_update():
 
 # absolute_update()
 
+def update_without_set():
+    """若不使用collection.update(query, {"$set": {key: value}), 而使用:
+        collection.update(query, new_document)
+    则会将所有定位到的document替换成, new_document
+    """
+    fmter.tpl._straightline("before", 100)
+    ppt(users.find({"_id": 1})[0])
+    users.update({"_id": 1}, {"_id": 1}) # replace the whole document with the new one
+    
+    fmter.tpl._straightline("after", 100)
+    ppt(users.find({"_id": 1})[0])
+    
+# update_without_set()
+
 def relative_update():
     """在Sql中有 set column_name = column_name + 1 这种相对更新的方法。在mongodb中我们的做法是:
         1. 使用$inc, $mul等操作符: http://docs.mongodb.org/manual/reference/operator/update-field/
