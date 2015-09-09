@@ -49,3 +49,8 @@ def skip_and_limit():
         ))
 
 # skip_and_limit()
+
+def distinct():
+    ppt(users.distinct("name"))
+    
+distinct()
